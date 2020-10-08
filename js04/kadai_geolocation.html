@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <style>
+    #map-canvas {
+      width: 1000px ;
+      height: 1000px ;
+    }
+      </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>現在地情報</title>
+</head>
+<body>
+
+  <h1 style="text-align:center;color:blue;">Geolocation API</h1>
+<p>Geolocation APIのを利用して、現在位置を取得するサンプルデモです。</p>
+
+<HR style="margin: 3em 0 ;">
+
+<h2>取得したデータ</h2>
+
+	<p>下記の位置情報を取得することができました。</p>
+
+	<dl id="result"></dl>
+
+<h2>地図</h2>
+
+
+	<p>Google Mapsに、位置情報を反映させたものです。</p>
+
+	<div class="map-wrapper">
+		<div id="map-canvas"></div>
+  </div>
+
+<script src="//maps.googleapis.com/maps/api/js?libraries=places&key={APIキー}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={APIキー}"></script>
+<script src="watch-position.js"></script>
+<script src="get-current-position.js"></script>
+<script src="googlemap.js"></script>
+
+</body>
+</html>

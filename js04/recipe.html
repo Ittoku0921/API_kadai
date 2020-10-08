@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>楽天レシピAPI</title>
+</head>
+<body>
+
+<table id="table"></table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+//*****************************************************
+// Click Event
+// 楽天APIへデータRequest → APIサーバーからresponseデータ取得 
+//*****************************************************
+    //送信データをObject変数で用意
+    //Ajax（非同期通信）
+    axios.get('https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?applicationId=1000668022165995264&format=json&categoryId=10',)
+    .then(function (response) {
+        showData(response.data);
+    }).catch(function (error) {
+        console.log(error);//通信Error
+    }).then(function () {
+        //console.log("Last");//通信OK/Error後に処理を必ずさせたい場合
+    });
+
+//*****************************************************
+//レシピデータ表示処理
+//*****************************************************
+function showData(data){
+    //データ確認用
+    console.log(data.rest);
+
+    //データを繰り返し処理で取得
+    const len  = data.rest.length; //データ数を取得
+    for( let i=0; i<len; i++){
+        $("#table").append('<tr><td>' + data.rest[i].name + '</td><td>' + data.rest[i].opentime + '</td></tr>');
+    };
+}
+</script>
+</body>
+</html>
